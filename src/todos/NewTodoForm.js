@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { createTodo } from './actions';
+import { addTodoRequest } from './thunks';
 import './NewTodoForm.css';
 
 const NewTodoForm = ({ todos, onCreatePressed }) => {
@@ -36,7 +36,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDisptachToProps = disptach => ({
-    onCreatePressed: text => disptach(createTodo(text)),
+    onCreatePressed: text => disptach(addTodoRequest(text)),
 });
 
 export default connect(mapStateToProps, mapDisptachToProps)(NewTodoForm);
